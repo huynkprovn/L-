@@ -14,6 +14,7 @@
 // along with LeagueSharp.Common.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using LeagueSharp;
 using LeagueSharp.Common;
@@ -38,39 +39,39 @@ namespace Assemblies.Champions
 
         private void LoadSpells()
         {
-            Q = new Spell(SpellSlot.Q, 1200);
+            Q = new Spell(SpellSlot.Q, 1150);
             Q.SetSkillshot(0.25f, 60f, 2000f, true, SkillshotType.SkillshotLine);
 
-            W = new Spell(SpellSlot.W, 1050);
+            W = new Spell(SpellSlot.W, 1000);
             W.SetSkillshot(0.25f, 80f, 2000f, false, SkillshotType.SkillshotLine);
 
-            R = new Spell(SpellSlot.R, 3000);
+            R = new Spell(SpellSlot.R, 20000);
             R.SetSkillshot(1f, 160f, 2000f, false, SkillshotType.SkillshotLine);
         }
 
         private void LoadMenu()
         {
             Menu.AddSubMenu(new Menu("Combo Options", "combo"));
-            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use Q in combo").SetValue(true));
+            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use _q in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useWC", "Use W in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useRC", "Use R in combo").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Harass Options", "harass"));
-            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use Q in harass").SetValue(true));
+            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use _q in harass").SetValue(true));
             Menu.SubMenu("harass").AddItem(new MenuItem("useWH", "Use W in harass").SetValue(false));
 
             Menu.AddSubMenu(new Menu("Laneclear Options", "laneclear"));
-            Menu.SubMenu("laneclear").AddItem(new MenuItem("useQLC", "Use Q in laneclear").SetValue(true));
-            Menu.SubMenu("laneclear").AddItem(new MenuItem("AutoQLC", "Auto Q to farm").SetValue(false));
+            Menu.SubMenu("laneclear").AddItem(new MenuItem("useQLC", "Use _q in laneclear").SetValue(true));
+            Menu.SubMenu("laneclear").AddItem(new MenuItem("AutoQLC", "Auto _q to farm").SetValue(false));
             Menu.SubMenu("laneclear").AddItem(new MenuItem("useQLCH", "Harass while laneclearing").SetValue(false));
 
 
             Menu.AddSubMenu(new Menu("Lasthit Options", "lastHit"));
-            Menu.SubMenu("lastHit").AddItem(new MenuItem("lastHitq", "Use Q Last Hit").SetValue(false));
-            Menu.SubMenu("lastHit").AddItem(new MenuItem("autoLastHit", "Auto Last Hit Q").SetValue(false));
+            Menu.SubMenu("lastHit").AddItem(new MenuItem("lastHitq", "Use _q Last Hit").SetValue(false));
+            Menu.SubMenu("lastHit").AddItem(new MenuItem("autoLastHit", "Auto Last Hit _q").SetValue(false));
 
             Menu.AddSubMenu(new Menu("Killsteal Options", "killsteal"));
-            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use Q for killsteal").SetValue(true));
+            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use _q for killsteal").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Hitchance Options", "hitchance"));
             Menu.SubMenu("hitchance")
@@ -79,7 +80,7 @@ namespace Assemblies.Champions
                         new StringList(new[] { "Low", "Medium", "High", "Very High" })));
 
             Menu.AddSubMenu(new Menu("Drawing Options", "drawing"));
-            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw Q").SetValue(false));
+            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw _q").SetValue(false));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawW", "Draw W").SetValue(false));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawR", "Draw R").SetValue(false));
 
@@ -146,7 +147,7 @@ namespace Assemblies.Champions
         private void LastHit()
         {
             //TODO - get minions around you
-            //Check if minion is killable with Q && isInRange
+            //Check if minion is killable with _q && isInRange
             //Also check if orbwalking mode == lasthit
             var autoQ = Menu.Item("autoLastHit").GetValue<bool>();
             var lastHitNormal = Menu.Item("lastHitq").GetValue<bool>();

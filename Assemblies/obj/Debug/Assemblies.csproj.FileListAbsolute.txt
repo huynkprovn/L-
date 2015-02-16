@@ -1,1 +1,2 @@
 C:\Users\CoreyJames\Documents\LeagueSharp\Assemblies\bin\Release\Assemblies.exe.config
+C:\Users\CoreyJames\Documents\LeagueSharp\LeagueSharp\Assemblies\bin\Release\Assemblies.exe.config

@@ -25,22 +25,21 @@ namespace Assemblies.Champions
 {
     internal class Kalista : Champion
     {
-        private static bool _doneAa;
         private Dictionary<Vector3, Vector3> jumpPos;
         /**
          * TODO: 
          * 
          * Works on summoners rift. // TODO autododgerprohax
 
-           Good job on this, Q and E works nicely, care to add KS drake + Baron/Buffs with E? I stole drake from jungler (more dmg than smite with my E).
+           Good job on this, _q and E works nicely, care to add KS drake + Baron/Buffs with E? I stole drake from jungler (more dmg than smite with my E).
            
          * Suggestions:
-            Q and E to secure lasthits(that you would normally miss).
-            Q waveclear, when enough rend stacks to kill more than 3 minions use Q on killable.(add slider if you want? xD).
+            _q and E to secure lasthits(that you would normally miss).
+            _q waveclear, when enough rend stacks to kill more than 3 minions use _q on killable.(add slider if you want? xD).
             E waveclear lasthitting creeps when they can die from current stacks, its really good seriously, because E resets on minion kill, and cost only 35 mana, you should really add this feature and see how good it is. (with a mana slider). Would add this to priority one xD.
             Auto cast ultimate on gapclosers(on/off toggle xD).
          *  W Spots thats show Sentinel routes.
-            Q to dodge skillshots(Ashe ulted me, evades movepackets and auto Q saved me) I know this takes time but quite a good feature.
+            _q to dodge skillshots(Ashe ulted me, evades movepackets and auto _q saved me) I know this takes time but quite a good feature.
          *  
          */
 
@@ -132,10 +131,10 @@ namespace Assemblies.Champions
 
         private void LoadSpells()
         {
-            Q = new Spell(SpellSlot.Q, 1175);
-            W = new Spell(SpellSlot.W, 5500);
-            E = new Spell(SpellSlot.E, 975);
-            R = new Spell(SpellSlot.R, 1475);
+            Q = new Spell(SpellSlot.Q, 1150);
+            W = new Spell(SpellSlot.W, 5000);
+            E = new Spell(SpellSlot.E, 1000);
+            R = new Spell(SpellSlot.R, 0);
 
             Q.SetSkillshot(0.12f, 40, 1800, true, SkillshotType.SkillshotLine);
 
@@ -145,7 +144,7 @@ namespace Assemblies.Champions
         private void LoadMenu()
         {
             Menu.AddSubMenu(new Menu("Combo Options", "combo"));
-            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use Q in combo").SetValue(true));
+            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use _q in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useEC", "Use E in combo").SetValue(true));
             //menu.SubMenu("combo").AddItem(new MenuItem("useRC", "Use R in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useER", "Use E on fleeing").SetValue(true));
@@ -153,7 +152,7 @@ namespace Assemblies.Champions
             //menu.SubMenu("combo").AddItem(new MenuItem("info", "^^ must get a stack on a minion first."));
 
             Menu.AddSubMenu(new Menu("Harass Options", "harass"));
-            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use Q in harass").SetValue(true));
+            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use _q in harass").SetValue(true));
             Menu.SubMenu("harass").AddItem(new MenuItem("useEH", "Use E in harass").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Laneclear Options", "laneclear"));
@@ -161,7 +160,7 @@ namespace Assemblies.Champions
             Menu.SubMenu("laneclear").AddItem(new MenuItem("eNum", "Number of minions").SetValue(new Slider(3, 1, 10)));
 
             Menu.AddSubMenu(new Menu("Killsteal Options", "killsteal"));
-            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use Q for killsteal").SetValue(true));
+            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use _q for killsteal").SetValue(true));
             Menu.SubMenu("killsteal").AddItem(new MenuItem("useEK", "Use E for killsteal").SetValue(true));
             //menu.SubMenu("killsteal").AddItem(new MenuItem("useEKO", "out of range killsteal").SetValue(true));
 
@@ -169,11 +168,11 @@ namespace Assemblies.Champions
             Menu.SubMenu("flee")
                 .AddItem(
                     new MenuItem("fleeKey", "Flee Key").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
-            Menu.SubMenu("flee").AddItem(new MenuItem("useQF", "Use Q for fleeing").SetValue(true));
+            Menu.SubMenu("flee").AddItem(new MenuItem("useQF", "Use _q for fleeing").SetValue(true));
             Menu.SubMenu("flee").AddItem(new MenuItem("useAAF", "Use AA's for fleeing").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Drawing Options", "drawing"));
-            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw Q Range").SetValue(false));
+            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw _q Range").SetValue(false));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawE", "Draw E Range").SetValue(false));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawStacks", "Draw spear stacks").SetValue(false));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawFlee", "Draw Flee Spots").SetValue(true));
@@ -208,8 +207,6 @@ namespace Assemblies.Champions
 
             Killsteal(target);
             AutoKillMinion();
-            //killJungleMinion();
-            //castELong(target);
             if (Menu.Item("fleeKey").GetValue<KeyBind>().Active)
             {
                 FleeMode();

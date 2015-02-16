@@ -62,30 +62,30 @@ namespace Assemblies.Champions
         private void LoadMenu()
         {
             Menu.AddSubMenu(new Menu("Combo Options", "combo"));
-            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use Q in combo").SetValue(true));
+            Menu.SubMenu("combo").AddItem(new MenuItem("useQC", "Use _q in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useWC", "Use W in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useEC", "Use E in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("useRC", "Use R in combo").SetValue(true));
             Menu.SubMenu("combo").AddItem(new MenuItem("minEnemies", "Enemies for R").SetValue(new Slider(2, 1, 5)));
 
             Menu.AddSubMenu(new Menu("Harass Options", "harass"));
-            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use Q in harass").SetValue(true));
+            Menu.SubMenu("harass").AddItem(new MenuItem("useQH", "Use _q in harass").SetValue(true));
             Menu.SubMenu("harass").AddItem(new MenuItem("useWH", "Use W in harass").SetValue(true));
             Menu.SubMenu("harass").AddItem(new MenuItem("useEH", "Use E in harass").SetValue(false));
 
             Menu.AddSubMenu(new Menu("Laneclear Options", "laneclear"));
-            Menu.SubMenu("laneclear").AddItem(new MenuItem("useQL", "Use Q in laneclear").SetValue(true));
+            Menu.SubMenu("laneclear").AddItem(new MenuItem("useQL", "Use _q in laneclear").SetValue(true));
             Menu.SubMenu("laneclear").AddItem(new MenuItem("useEL", "Use E in laneclear").SetValue(false));
 
             Menu.AddSubMenu(new Menu("Killsteal Options", "killsteal"));
-            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use Q in killsteal").SetValue(true));
+            Menu.SubMenu("killsteal").AddItem(new MenuItem("useQK", "Use _q in killsteal").SetValue(true));
             Menu.SubMenu("killsteal").AddItem(new MenuItem("useWK", "Use W in killsteal").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Flee Options", "flee"));
             Menu.SubMenu("flee").AddItem(new MenuItem("useEF", "Use E in flee").SetValue(true));
 
             Menu.AddSubMenu(new Menu("Drawing Options", "drawing"));
-            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw Q Range").SetValue(true));
+            Menu.SubMenu("drawing").AddItem(new MenuItem("drawQ", "Draw _q Range").SetValue(true));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawE", "Draw E Range").SetValue(true));
             Menu.SubMenu("drawing").AddItem(new MenuItem("drawR", "Draw R Range").SetValue(true));
 
